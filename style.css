@@ -69,8 +69,17 @@ a {
   height: 64px;
 }
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font: 900 24px/1 var(--display);
   letter-spacing: 0.08em;
+}
+.brand img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 .nav {
   display: flex;
@@ -274,7 +283,7 @@ h2 {
 .four {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
-.two {
+.social {
   grid-template-columns: repeat(auto-fit, minmax(260px, 420px));
 }
 .card {
@@ -408,8 +417,11 @@ h2 {
   border-radius: 50%;
   background: var(--gold);
   color: var(--ink);
-  font: 900 20px/1 var(--display);
-  letter-spacing: 0.04em;
+}
+.ico {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
 }
 .soc span {
   font-weight: 700;
@@ -462,7 +474,7 @@ h2 {
   }
 }
 @media (max-width: 560px) {
-  .brand {
+  .brand span {
     display: none;
   }
   .nav {
