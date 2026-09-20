@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AscenderFall</title>
+<meta name="description" content="AscenderFall：攀上 128 層的垂直賽博都市，或在半途墜落。">
+<meta name="theme-color" content="#0b0817">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top">ASCENDERFALL</a>
+    <nav class="nav" aria-label="主選單">
+      <a href="#intro">遊戲介紹</a>
+      <a href="#video">遊戲影片</a>
+      <a href="#team">團隊介紹</a>
+      <a href="#community">社群連結</a>
+    </nav>
+  </div>
+</header>
+
+<div class="gauge" aria-hidden="true">
+  <output>F000</output>
+  <div class="track"><i></i></div>
+</div>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap hero-in">
+      <h1><span class="rise">ASCENDER</span><span class="fall">FALL</span></h1>
+      <p class="lead">一座 128 層的垂直都市。往上爬，每一層都有人想把你拉下來。</p>
+      <dl class="spec">
+        <div><dt>類型</dt><dd>垂直城市動作 Roguelite</dd></div>
+        <div><dt>平台</dt><dd>PC</dd></div>
+        <div><dt>狀態</dt><dd>開發中，測試招募籌備中</dd></div>
+      </dl>
+      <div class="cta">
+        <a class="btn" href="#video">觀看預告</a>
+        <a class="btn alt" href="#community">加入社群</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="intro">
+    <div class="wrap">
+      <h2 class="reveal">遊戲介紹</h2>
+      <p class="sub reveal">你是塔底的無名清潔工，唯一的目標是登上第 128 層。塔裡沒有安全的樓層，只有還沒被盯上的路線。</p>
+      <div class="grid three">
+        <article class="card reveal">
+          <h3>向上攀登</h3>
+          <p>每一層都是獨立街區，路線隨機生成。通往塔頂的路，每次都不一樣。</p>
+        </article>
+        <article class="card reveal">
+          <h3>墜落有代價</h3>
+          <p>失手不會直接重來，而是掉回下方樓層，帶著你搶到的零件和欠下的債。</p>
+        </article>
+        <article class="card reveal">
+          <h3>改造你的身體</h3>
+          <p>義體模組可自由組合。把移動、駭入或近戰堆成你自己的登塔路線。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="video">
+    <div class="wrap">
+      <h2 class="reveal">遊戲影片</h2>
+      <p class="sub reveal">看看第 1 層到第 12 層的街區、戰鬥與墜落。</p>
+      <div class="video reveal">
+        <!-- 把 data-yt 換成你的 YouTube 影片 ID -->
+        <button class="play" data-yt="YOUR_VIDEO_ID" aria-label="播放 AscenderFall 預告片"><span></span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="team">
+    <div class="wrap">
+      <h2 class="reveal">團隊介紹</h2>
+      <p class="sub reveal">一支小團隊，從第一行程式碼一路做到塔頂。</p>
+      <div class="grid four">
+        <article class="card member reveal" style="--h:170">
+          <div class="ava">V</div>
+          <h3>Vex</h3><p class="role">遊戲設計</p>
+          <p>負責關卡節奏與墜落機制。</p>
+        </article>
+        <article class="card member reveal" style="--h:320">
+          <div class="ava">N</div>
+          <h3>Nyx</h3><p class="role">程式</p>
+          <p>負責戰鬥系統與隨機樓層生成。</p>
+        </article>
+        <article class="card member reveal" style="--h:45">
+          <div class="ava">K</div>
+          <h3>Kade</h3><p class="role">美術</p>
+          <p>負責街區、角色與霓虹光影。</p>
+        </article>
+        <article class="card member reveal" style="--h:260">
+          <div class="ava">R</div>
+          <h3>Rho</h3><p class="role">音樂與音效</p>
+          <p>負責合成器配樂與環境音。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="community">
+    <div class="wrap">
+      <h2 class="reveal">社群連結</h2>
+      <p class="sub reveal">開發日誌、測試招募和更新消息，都會先在這裡發布。</p>
+      <div class="grid four">
+        <a class="soc reveal" href="https://discord.com" rel="noopener"><b>DC</b><span>Discord<small>和玩家與開發者聊天</small></span></a>
+        <a class="soc reveal" href="https://www.youtube.com" rel="noopener"><b>YT</b><span>YouTube<small>預告與開發日誌</small></span></a>
+        <a class="soc reveal" href="https://x.com" rel="noopener"><b>X</b><span>X<small>最新消息</small></span></a>
+        <a class="soc reveal" href="https://store.steampowered.com" rel="noopener"><b>ST</b><span>Steam<small>加入願望清單</small></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap">© 2026 AscenderFall 團隊</div></footer>
+
+<script src="main.js"></script>
+</body>
+</html>
