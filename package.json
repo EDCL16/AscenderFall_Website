@@ -1,0 +1,8 @@
+{
+  "name": "ascenderfall-website",
+  "private": true,
+  "devDependencies": {
+    "html-validate": "^9.7.1",
+    "prettier": "^3.9.8"
+  }
+}
