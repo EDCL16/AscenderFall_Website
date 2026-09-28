@@ -1,10 +1,10 @@
 :root {
-  --ink: #0b0817;
-  --panel: #151030;
-  --line: #2e2660;
-  --text: #e9e4ff;
-  --dim: #a29acb;
-  --gold: #ffc83d;
+  --ink: #06101f;
+  --panel: #0d1b33;
+  --line: #1e3558;
+  --text: #e6eefc;
+  --dim: #92a5c6;
+  --orange: #ff8a2a;
   --cyan: #36f1e4;
   --mag: #ff2e93;
   --display: "Big Shoulders Display", "Noto Sans TC", sans-serif;
@@ -42,7 +42,7 @@ a {
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  background: rgba(11, 8, 23, 0.6);
+  background: rgba(6, 16, 31, 0.6);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
   transition:
@@ -50,7 +50,7 @@ a {
     background-color 0.25s ease;
 }
 .hdr.scrolled {
-  background: rgba(11, 8, 23, 0.3);
+  background: rgba(6, 16, 31, 0.3);
 }
 .hdr.hide {
   transform: translateY(-100%);
@@ -143,7 +143,7 @@ h2 {
   left: -1px;
   width: 16px;
   height: 16px;
-  border: 2px solid var(--gold);
+  border: 2px solid var(--orange);
   border-right: 0;
   border-bottom: 0;
 }
@@ -173,14 +173,24 @@ h2 {
 /* 遊戲介紹：左文右圖，窄螢幕改上下 */
 .intro {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 3fr 2fr;
   gap: 40px;
-  align-items: center;
+  align-items: start;
+}
+.intro .sub {
+  max-width: none;
+  font-size: 18px;
 }
 .intro img {
   display: block;
   width: 100%;
+  margin-top: 20px; /* 對齊第一段文字頂端 */
   border: 1px solid var(--line);
+}
+@media (max-width: 760px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
 }
 .shots img {
   display: block;
@@ -224,12 +234,12 @@ h2 {
   border: 0;
   font-size: 40px;
   color: var(--cyan);
-  background: rgba(10, 8, 30, 0.6);
+  background: rgba(6, 16, 31, 0.6);
   cursor: pointer;
 }
 .lightbox button:hover,
 .lightbox button:focus-visible {
-  background: rgba(10, 8, 30, 0.9);
+  background: rgba(6, 16, 31, 0.9);
 }
 .lightbox [data-d="-1"] {
   left: 16px;
@@ -269,7 +279,7 @@ h2 {
   width: 84px;
   height: 84px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--orange);
   transition: transform 0.15s ease;
 }
 .play span::after {
@@ -305,7 +315,7 @@ h2 {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--orange);
   color: var(--ink);
 }
 .ico {
@@ -320,7 +330,7 @@ h2 {
 .soc:hover,
 .soc:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(255, 200, 61, 0.18);
+  box-shadow: 0 10px 24px rgba(255, 138, 42, 0.2);
 }
 
 .foot {
