@@ -1,7 +1,5 @@
 const $ = (s, e = document) => [...e.querySelectorAll(s)];
-const hdr = $(".hdr")[0],
-  fill = $(".track i")[0],
-  num = $(".gauge output")[0];
+const hdr = $(".hdr")[0];
 const IO = "IntersectionObserver" in window;
 let last = 0;
 
@@ -9,14 +7,11 @@ let last = 0;
 addEventListener(
   "scroll",
   () => {
-    const y = scrollY,
-      max = document.documentElement.scrollHeight - innerHeight,
-      p = max > 0 ? Math.min(y / max, 1) : 0;
+    const y = scrollY;
     if (y > last && y > hdr.offsetHeight) hdr.classList.add("hide");
     else if (y < last) hdr.classList.remove("hide");
     last = y;
-    fill.style.transform = `scaleY(${p})`; // 高度計
-    num.textContent = String(Math.round(p * 9999)).padStart(4, "0") + "m";
+    hdr.classList.toggle("scrolled", y > 0); // 離開頂部後背景更透明
   },
   { passive: true },
 );
@@ -63,6 +58,33 @@ if (IO) {
   );
   $("section[id]").forEach((s) => nav.observe(s));
 }
+
+// 截圖燈箱：原生 <dialog>，←/→ 或按鈕切換，Esc 或點其他地方關閉；無 JS 時連結直接開原圖
+const box = $(".lightbox")[0],
+  big = box.appendChild(new Image()),
+  shots = $(".shots a");
+let cur = 0;
+const show = (n) => {
+  cur = (n + shots.length) % shots.length;
+  big.src = shots[cur].href;
+  big.alt = shots[cur].firstElementChild.alt;
+};
+shots.forEach(
+  (a, n) =>
+    (a.onclick = (e) => {
+      e.preventDefault();
+      show(n);
+      box.showModal();
+    }),
+);
+box.onclick = (e) => {
+  const b = e.target.closest("button");
+  b ? show(cur + +b.dataset.d) : box.close();
+};
+box.onkeydown = (e) => {
+  const d = { ArrowLeft: -1, ArrowRight: 1 }[e.key];
+  if (d) show(cur + d);
+};
 
 // 影片：點擊才載入 YouTube，首屏不背負 iframe
 const play = $(".play")[0];
