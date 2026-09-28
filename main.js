@@ -88,6 +88,7 @@ box.onkeydown = (e) => {
 
 // 影片：點擊才載入 YouTube，首屏不背負 iframe
 const play = $(".play")[0];
+play.style.backgroundImage = `url(https://i.ytimg.com/vi/${play.dataset.yt}/maxresdefault.jpg)`; // 預覽圖
 play.onclick = () => {
   play.parentNode.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${play.dataset.yt}?autoplay=1" title="AscenderFall 預告片" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;
 };

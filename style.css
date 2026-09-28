@@ -259,18 +259,7 @@ h2 {
   height: 100%;
   border: 0;
   cursor: pointer;
-  background:
-    radial-gradient(
-      ellipse at 30% 110%,
-      rgba(255, 46, 147, 0.5),
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse at 90% 0%,
-      rgba(54, 241, 228, 0.25),
-      transparent 55%
-    ),
-    var(--panel);
+  background: var(--panel) center/cover;
 }
 .play span {
   position: absolute;
