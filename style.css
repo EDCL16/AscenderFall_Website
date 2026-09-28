@@ -97,22 +97,13 @@ a {
   display: flex;
   align-items: center;
   padding: 120px 0 72px;
-  background: url("images/In-game_screenshot/Environment_2.png") center/cover;
+  background: url("images/In-game_screenshot/Environment_1.png") center/cover;
 }
 h1 {
+  color: #fff;
   font: 900 clamp(44px, 13vw, 170px)/0.86 var(--display);
   letter-spacing: 0.01em;
   white-space: nowrap;
-}
-.fall {
-  color: transparent;
-  -webkit-text-stroke: 2px var(--gold);
-}
-.lead {
-  margin-top: 32px;
-  max-width: 26em;
-  font-size: clamp(18px, 2.2vw, 22px);
-  line-height: 1.7;
 }
 
 /* 區塊 */
@@ -133,7 +124,7 @@ h2 {
   margin-top: 44px;
 }
 .social {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 420px));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 .card {
   position: relative;
@@ -177,7 +168,19 @@ h2 {
   background: var(--panel);
 }
 .shots {
+  grid-template-columns: repeat(2, 1fr);
+}
+/* 遊戲介紹：左文右圖，窄螢幕改上下 */
+.intro {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  align-items: center;
+}
+.intro img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line);
 }
 .shots img {
   display: block;
@@ -314,12 +317,6 @@ h2 {
   font-weight: 700;
   line-height: 1.4;
 }
-.soc small {
-  display: block;
-  font-weight: 400;
-  font-size: 14px;
-  color: var(--dim);
-}
 .soc:hover,
 .soc:focus-visible {
   transform: translateY(-2px);
@@ -340,6 +337,9 @@ h2 {
   }
 }
 @media (max-width: 560px) {
+  .shots {
+    grid-template-columns: 1fr;
+  }
   .brand span {
     display: none;
   }
@@ -363,9 +363,6 @@ h2 {
   }
   .hero-in > * {
     animation: up 0.7s ease backwards;
-  }
-  .hero-in > :nth-child(2) {
-    animation-delay: 0.2s;
   }
   .js .reveal {
     --y: 20px;
