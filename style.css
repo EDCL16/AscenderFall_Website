@@ -106,6 +106,83 @@ h1 {
   white-space: nowrap;
 }
 
+/* 遊戲介紹頁：較矮的頁首 */
+.hero-sm {
+  min-height: 70svh;
+  background-image:
+    linear-gradient(rgba(6, 16, 31, 0.15), var(--ink)),
+    url("images/In-game_screenshot/Environment_3.png");
+}
+.h1-sm {
+  font: 900 clamp(34px, 6vw, 72px)/1.15 var(--body);
+  white-space: normal;
+}
+.lead {
+  margin-top: 18px;
+  max-width: 32em;
+  font-size: clamp(16px, 2vw, 20px);
+}
+
+/* 遊戲特點：圖文左右交錯，窄螢幕改上下 */
+.feats {
+  display: grid;
+  gap: clamp(64px, 9vw, 112px);
+}
+.feat {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 40px;
+  align-items: center;
+}
+.feat:nth-child(even) img {
+  order: 1;
+}
+.feat img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+/* 特點名稱當大標 */
+.feat h2 {
+  margin-bottom: 18px;
+  font: 900 clamp(40px, 5.5vw, 64px)/1.1 var(--body);
+}
+.feat p:last-child {
+  color: var(--dim);
+  font-size: 17px;
+}
+@media (max-width: 760px) {
+  .feat {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .feat:nth-child(even) img {
+    order: 0;
+  }
+}
+.cta {
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.cta .sub {
+  margin-inline: auto;
+}
+.btn {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 12px 28px;
+  background: var(--orange);
+  color: var(--ink);
+  font-weight: 900;
+  transition: transform 0.15s ease;
+}
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+}
+
 /* 區塊 */
 .sec {
   padding: clamp(72px, 11vw, 128px) 0;

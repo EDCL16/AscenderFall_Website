@@ -40,55 +40,40 @@ $(".reveal").forEach((el) =>
   reveal ? reveal.observe(el) : el.classList.add("in"),
 );
 
-// 導覽列目前區塊：aria-current="page"
-const links = $(".nav a");
-if (IO) {
-  const nav = new IntersectionObserver(
-    (es) =>
-      es.forEach(
-        (e) =>
-          e.isIntersecting &&
-          links.forEach((a) =>
-            a.hash === "#" + e.target.id
-              ? a.setAttribute("aria-current", "page")
-              : a.removeAttribute("aria-current"),
-          ),
-      ),
-    { rootMargin: "-45% 0px -45% 0px" },
+// 截圖燈箱：原生 <dialog>，←/→ 或按鈕切換，Esc 或點其他地方關閉；無 JS 時連結直接開原圖（僅首頁）
+const box = $(".lightbox")[0];
+if (box) {
+  const big = box.appendChild(new Image()),
+    shots = $(".shots a");
+  let cur = 0;
+  const show = (n) => {
+    cur = (n + shots.length) % shots.length;
+    big.src = shots[cur].href;
+    big.alt = shots[cur].firstElementChild.alt;
+  };
+  shots.forEach(
+    (a, n) =>
+      (a.onclick = (e) => {
+        e.preventDefault();
+        show(n);
+        box.showModal();
+      }),
   );
-  $("section[id]").forEach((s) => nav.observe(s));
+  box.onclick = (e) => {
+    const b = e.target.closest("button");
+    b ? show(cur + +b.dataset.d) : box.close();
+  };
+  box.onkeydown = (e) => {
+    const d = { ArrowLeft: -1, ArrowRight: 1 }[e.key];
+    if (d) show(cur + d);
+  };
 }
 
-// 截圖燈箱：原生 <dialog>，←/→ 或按鈕切換，Esc 或點其他地方關閉；無 JS 時連結直接開原圖
-const box = $(".lightbox")[0],
-  big = box.appendChild(new Image()),
-  shots = $(".shots a");
-let cur = 0;
-const show = (n) => {
-  cur = (n + shots.length) % shots.length;
-  big.src = shots[cur].href;
-  big.alt = shots[cur].firstElementChild.alt;
-};
-shots.forEach(
-  (a, n) =>
-    (a.onclick = (e) => {
-      e.preventDefault();
-      show(n);
-      box.showModal();
-    }),
-);
-box.onclick = (e) => {
-  const b = e.target.closest("button");
-  b ? show(cur + +b.dataset.d) : box.close();
-};
-box.onkeydown = (e) => {
-  const d = { ArrowLeft: -1, ArrowRight: 1 }[e.key];
-  if (d) show(cur + d);
-};
-
-// 影片：點擊才載入 YouTube，首屏不背負 iframe
+// 影片：點擊才載入 YouTube，首屏不背負 iframe（僅首頁）
 const play = $(".play")[0];
-play.style.backgroundImage = `url(https://i.ytimg.com/vi/${play.dataset.yt}/maxresdefault.jpg)`; // 預覽圖
-play.onclick = () => {
-  play.parentNode.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${play.dataset.yt}?autoplay=1" title="AscenderFall 預告片" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;
-};
+if (play) {
+  play.style.backgroundImage = `url(https://i.ytimg.com/vi/${play.dataset.yt}/maxresdefault.jpg)`; // 預覽圖
+  play.onclick = () => {
+    play.parentNode.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${play.dataset.yt}?autoplay=1" title="AscenderFall 預告片" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;
+  };
+}
